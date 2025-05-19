@@ -22,39 +22,39 @@ data$abs <- abs
 
 View(data)
 
-### Make a plot with ggplot2
+### hacer una g´rfica con ggplot2
 
-## Step 1: add the data and then the 'aesthetics'
+## Paso 1: añade los datos y después la "estética" ('aesthetics', por eso la función se llama 'aes')
   
-p <- ggplot(data=data,          # specify the data frame with data
-            aes(x=prot_conc, y=abs)) # specify x and y for the graph
-p  # show the plot
+p <- ggplot(data=data,          # Especifica el nombre del dataframe que tiene los datos - en este caso el dataframe se llama data
+            aes(x=prot_conc, y=abs)) # especifica que os valores de concentración de proteínas se graficaran en el eje x, y que los valores de absorbancia serán el eje y
+p  # muestra la gráfica
 
-## Step 2: add a type of graph**
+## Paso 2: añade un tipo de gráfica**
 p <- p + geom_point()
 
-p # show the plot again
+p # muestra la gráfica nuevamente
 
-# shows the graph but doesn't modify it
+# muestra la gráfica pero no la modifica
 p + stat_smooth(method = "lm", formula = y ~ x)
 
-p # show the plot - no line...
+p # muestra la gráfica - sin línea...
 
-# add some labels. 
-p +  xlab("[Protein] (microg/ml)") +   # label x-axis
-  ylab("Absorbance (570nm)") +      # label y-axis
-  ggtitle("Protein Assay")          # add a title
+# añade algunas etiquetas. 
+p +  xlab("[Proteína] (microg/ml)") +   # etiqueta del eje de las x
+  ylab("Absorbancia (570nm)") +      # etiqueta para el eje de las y
+  ggtitle("Ensayo de proteína")          # añadir título
 
 p <- p + stat_smooth(method = "lm", formula = y ~ x) +
-         xlab("[Protein] (microg/ml)") +   # label x-axis
-         ylab("Absorbance (570nm)") +      # label y-axis
-         ggtitle("Protein Assay")          # add a title
+         xlab("[Proteína] (microg/ml)") +   # etiqueta del eje x
+         ylab("Absorbancia (570nm)") +      # etiqueta del eje y
+         ggtitle("Ensayo de proteína")          # añadir título
 
 p
 
-# save you're output wtih Export or
+# puedes guardar tus resultados con Export, o
 
-# remove the comment line to save the plot
-p + ggsave("ProteinStandardCurve.pdf")
+# quítale el comentario a la línea siguiente para guardar la gráfica
+ggsave("ProteinStandardCurve.pdf", plot0 = p)
 
 
