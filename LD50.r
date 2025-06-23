@@ -1,4 +1,18 @@
- # START of SCRIPT
+# As mentioned previously, we do a lot of drug testing in our laboratory.
+# Here is the same data plotted with ggplot.
+# The experimental set up, done by a student in the lab, is as follows:
+
+#     using some cells and add various concentrations of a novel drug
+#     leave for 48 hours
+#     then measure how many cells are dead
+#     the experiment was done four times with the doses improved each time
+
+# Here is the graph and calculated LD50 - a measure of how good the drug is:
+
+
+
+
+# START of SCRIPT
 library(ggplot2)
 
 ###  this is the data   ### 
